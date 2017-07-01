@@ -2,7 +2,7 @@
 import urllib2,urllib
 url = 'http://172.16.7.141:6062/jtsearch/a/ajcxtb/query' #请求的url
 data = {'uuid':'12312312',
-        'policyNo':'86033152920161124050',
+        'policyNo':'8603315292016112405',
         'via':'2',
         'inscomp':'0001300041.00004'
         }#根据文档中提供的api参数进行修改
