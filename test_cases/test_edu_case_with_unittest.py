@@ -16,10 +16,10 @@ class Test_Case_1(unittest.TestCase):
         self.url2 = urllib2.Request(self.url, self.data)
         self.response = urllib2.urlopen(self.url2)
         self.apicontent = self.response.read()
-        self.assertIn(self.apicontent,'',msg='pass')
-
+        testresult = self.assertIn(self.apicontent,'',msg='pass')
+        #print testresult
     def tearDown(self):
-        print self.apicontent
+        pass
 
 
 
