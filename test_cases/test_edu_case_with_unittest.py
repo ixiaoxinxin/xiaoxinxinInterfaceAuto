@@ -1,6 +1,7 @@
 #-coding:UTF8-*-
 import urllib2,urllib
-import unittest
+import unittest, os, sys, time
+from tools import HtmlReporter
 
 class Test_Case_1(unittest.TestCase):
     def setUp(self):
@@ -12,7 +13,7 @@ class Test_Case_1(unittest.TestCase):
                 }
         self.data = urllib.urlencode(self.data)
 
-    def error_message_1(self):
+    def test_error_message_1(self):
         self.url2 = urllib2.Request(self.url, self.data)
         self.response = urllib2.urlopen(self.url2)
         self.apicontent = self.response.read()
@@ -21,5 +22,10 @@ class Test_Case_1(unittest.TestCase):
     def tearDown(self):
         pass
 
-
-
+if __name__ == '__main__':
+    testunit = unittest.TestSuite()
+    testunit.addTest(Test_Case_1("test_error_message_1"))
+    report = "E:\\xiaoxinxinInterfaceAuto\\logs\\result.html"
+    fp = file(report,"wb")
+    runner = HtmlReporter.HTMLTestRunner(stream=fp,title="xiaoxinxin",description="zkx")
+    runner.run(testunit)
